@@ -1,9 +1,15 @@
 import React from "react";
 import PlantCard from "./PlantCard";
+import { Card } from "semantic-ui-react";
 
-function PlantList() {
+function PlantList({ plants }) {
+  const plantCards = plants.map((plants) => {
+    return <PlantCard key={plants.id} plants={plants} />
+  })
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <Card.Group itemsPerRow={4}>
+      {plantCards}
+    </Card.Group>
   );
 }
 
