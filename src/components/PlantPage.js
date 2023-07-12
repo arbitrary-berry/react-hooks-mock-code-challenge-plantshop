@@ -6,7 +6,7 @@ import Search from "./Search";
 function PlantPage() {
 
   const [plants, setPlants] = useState([])
-  const [seachTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     fetch('http://localhost:6001/plants')
@@ -22,8 +22,9 @@ function handleSearch(event) {
   setSearchTerm(event.target.value)
 }
 
-function plantSearch = plants.filter((plant) =>
-  plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
+const plantSearch = plants.filter((plant) =>
+  plant.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <main>
