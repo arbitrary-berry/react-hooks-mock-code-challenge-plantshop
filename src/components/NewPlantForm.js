@@ -17,12 +17,15 @@ function NewPlantForm({ onNewPlant }) {
     fetch('http://localhost:6001/plants', {
       method: 'POST',
       headers: { 'Content-Type' : 'application/json' },
-      body: JSON.stringify(form)
+      body: JSON.stringify({
+        ...form,
+        price: parseFloat(form.price),
+      })
     })
     .then(res =>res.json())
     .then(newPlant => {onNewPlant(newPlant)})
   }
-//make price a number not a string line 20
+//make price a number not a string line
 
   return (
     <div className="new-plant-form">
