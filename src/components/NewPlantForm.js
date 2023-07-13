@@ -17,15 +17,12 @@ function NewPlantForm({ onNewPlant }) {
     fetch('http://localhost:6001/plants', {
       method: 'POST',
       headers: { 'Content-Type' : 'application/json' },
-      body: JSON.stringify({
-        'name' : form.name,
-        'image' : form.image,
-        'price' : form.price
-        })
+      body: JSON.stringify(form)
     })
     .then(res =>res.json())
     .then(newPlant => {onNewPlant(newPlant)})
   }
+//make price a number not a string line 20
 
   return (
     <div className="new-plant-form">
@@ -42,7 +39,7 @@ function NewPlantForm({ onNewPlant }) {
         name="image" 
         placeholder="Image URL"
         value={form.image}
-        onChaneg={handleForm} />
+        onChange={handleForm} />
         <input 
         type="number" 
         name="price" 

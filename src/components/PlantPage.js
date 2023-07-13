@@ -11,7 +11,7 @@ function PlantPage() {
   useEffect(() => {
     fetch('http://localhost:6001/plants')
     .then(res => res.json())
-    .then((plants) => setPlants(plants))
+    .then((plants) => setPlants(plants)) //or .then(setPlants)
 }, [])
 
 function handleNewPlant(newGreenPlant) {
@@ -30,7 +30,7 @@ const plantSearch = plants.filter((plant) =>
     <main>
       <NewPlantForm onNewPlant={handleNewPlant}/>
       <Search onHandleSearch={handleSearch} searchTerm={searchTerm}/>
-      <PlantList plants={plants} searchTerm={searchTerm}/>
+      <PlantList plants={plantSearch} searchTerm={searchTerm}/>
     </main>
   );
 }
